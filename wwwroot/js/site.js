@@ -2,7 +2,7 @@
 // for details on configuring this project to bundle and minify static web assets.
 // Write your JavaScript code.
 
-const API_KEY = 'api_key=40edc4233c3919b93a39ac7e0d842180';
+const API_KEY = 'api_key=*insert key here*';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&' + API_KEY;
 const API_URL2 = BASE_URL + '/discover/tv?sort_by=popularity.desc&' + API_KEY;
