@@ -1,0 +1,101 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "";
+    
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] MyMovies</title>
+
+    <link rel="stylesheet" href="~/css/style.css" >
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"/>
+	<link rel="stylesheet" href=".//css/navbar.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="icon" href="~/favicon-32x32.png" type="image/svg" >
+</head>
+<body>
+    <nav class="navbar navbar-expand-custom navbar-mainbg sticky">
+	<i class="navbar-brand navbar-logo" href="#">MyMovies</i>
+	<button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<i class="fa fa-bars text-white"></i>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav ml-auto">
+			<div class="hori-selector">
+				<div class="left"></div>
+				<div class="right"></div>
+			</div>
+            <li class="nav-item active">
+				<a class="nav-link" id="trendlink" href="javascript:void(0);"><i class="fa fa-line-chart"></i>Trending</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="movielink" href="javascript:void(0);"><i class="fa fa-film"></i>Movies</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="tvlink" href="javascript:void(0);"><i class="fa fa-tv"></i>TV-Shows</a>
+			</li>
+            <li class="nav-item">
+				<a class="nav-link" id="personlink" href="javascript:void(0);"><i class="fa fa-user"></i>People</a>
+			</li>
+            <li class="nav-item">
+				<a class="nav-link" id="listlink" href="javascript:void(0);"><i class="fa fa-list"></i>Lists</a>
+			</li>
+            <li class="nav-item">
+				<a class="nav-link" id="quizlink" href="javascript:void(0);"><i class="fa fa-question"></i>Trivia - Coming Soon</a>
+			</li>
+		</ul>
+	</div>
+	</nav>
+    <div id="tags"></div>
+    <form id="form" style="display: flex;flex-wrap: wrap;justify-content: center;align-items: center; margin: 10px auto;"><input type="text" style="color: #5161ce; text-align: center; border-color: #5161ce;" placeholder="Search" id="search" class="search"></form>
+    <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content" id="overlay-content"></div>
+        
+        <a href="javascript:void(0)" class="arrow left-arrow" id="left-arrow">&#8656;</a>
+        
+        <a href="javascript:void(0)" class="arrow right-arrow" id="right-arrow" >&#8658;</a>
+
+      </div>
+    <main id="main"></main>
+    <div class="pagination" id="pagescontainer" style="padding: 20px;">
+        <div class="page" id="prev" style="color: grey;">Previous Page</div>
+        <div class="current" id="current" style="color: grey;">1</div>
+        <div class="page" id="next"style="color: grey;">Next Page</div>
+    </div>
+
+    <div class="col-sm-12 container">
+        <img class="container center" src="~/tmdb.svg" alt="creditimg" id="creditimg" style="padding: 60px;" width="50%" height="50%">
+    </div>
+
+    <script src=".//js/site.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src=".//js/navbar.js" asp-append-version="true"></script>
+</body>
+</html>
+
+<script>
+    resetcontent();
+    run_trending("week", "week", "week", "week");
+
+    window.onload = function () {
+        window.scrollTo(0,0);
+        document.getElementById("trendlink").onclick = function () {resetcontent(); run_trending("week", "week", "week", "week");}
+        document.getElementById("tvlink").onclick =  function () {resetcontent(); run_tvshows();};
+        document.getElementById("movielink").onclick =  function () {resetcontent(); run_movies();};
+        document.getElementById("personlink").onclick =  function () {resetcontent(); run_people();};
+        document.getElementById("listlink").onclick =  function () {resetcontent(); run_lists();};
+        document.getElementById("quizlink").onclick =  function () {resetcontent(); run_quiz();};
+    }
+</script>
