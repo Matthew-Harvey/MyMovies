@@ -1,6 +1,7 @@
 # MyMovies
 
-[Live Demo](https://mharvey-movies.herokuapp.com/)   [Portfolio](https://matthew-harvey.github.io/)
+[Live Demo](https://mharvey-movies.herokuapp.com/)
+[Portfolio](https://matthew-harvey.github.io/)
 
 Movie site made using TMDb API that allows users to search new movies and actors, create lists and answer trivia questions.
 
